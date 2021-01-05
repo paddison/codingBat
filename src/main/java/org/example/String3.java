@@ -2,6 +2,23 @@ package org.example;
 
 public class String3 {
 
+    public static int countYZ(String str) {
+        int count = 0;
+        char last;
+        String[] words = str.split("[^a-z^A-Z]");
+        for (String word : words) {
+            if (word.length() > 0) {
+                last = word.toLowerCase().charAt(word.length() - 1);
+                if (last == 'y' || last == 'z') {
+                    count++;
+                }
+            }
+
+        }
+        return count;
+    }
+
+
     static String mirrorEnds(String string) {
         String mirrorString = "";
 
@@ -59,7 +76,7 @@ public class String3 {
 
     public static void main( String[] args ) {
         // Multiline text block requires Java 15+
-        System.out.println(sumNumbers("abc123xyz4mklmk3l4lm4l;m34l22"));
+        System.out.println(countYZ("!!day--yaz!!"));
     }
 }
 
